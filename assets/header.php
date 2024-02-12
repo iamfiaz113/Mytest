@@ -52,6 +52,14 @@
                 <span class="menu-title">Products</span>
             </a>
         </li>
+        <li class="nav-item menu-items <?php echo $currentUrl === 'restapii/add-customer.php' ? 'active' : ''; ?>">
+            <a class="nav-link" href="/restapii/add-customer.php">
+                <span class="menu-icon">
+                    <i class="mdi mdi-flip-to-back"></i>
+                </span>
+                <span class="menu-title">Add customer</span>
+            </a>
+        </li>
 
         </ul>
       </nav>
