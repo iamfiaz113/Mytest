@@ -37,15 +37,15 @@
         ?>
 
         <li class="nav-item menu-items mt-3 <?php echo $currentUrl === 'add.php' ? 'active' : ''; ?>">
-            <a class="nav-link" href="/restapi/add.php">
+            <a class="nav-link" href="/restapii/add.php">
                 <span class="menu-icon">
                     <i class="mdi mdi-folder-multiple-image"></i>
                 </span>
                 <span class="menu-title">Add products</span>
             </a>
         </li>
-        <li class="nav-item menu-items <?php echo $currentUrl === 'restapi' ? 'active' : ''; ?>">
-            <a class="nav-link" href="/restapi">
+        <li class="nav-item menu-items <?php echo $currentUrl === 'restapii' ? 'active' : ''; ?>">
+            <a class="nav-link" href="/restapii">
                 <span class="menu-icon">
                     <i class="mdi mdi-flip-to-back"></i>
                 </span>
