@@ -5,7 +5,7 @@ $products = $woocommerce->get('products');
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Products</h4>
+            <h4 class="card-title">Products v1.2</h4>
             <!-- Opening tag for the table -->
             <div class="table-responsive">
                 <table class="table table-bordered">
