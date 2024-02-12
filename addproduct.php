@@ -16,33 +16,50 @@ $woocommerce = new Client(
     'version' => 'wc/v3',
   ]
 );
-$productName = isset($_POST['name']) ? $_POST['name'] : 'Premium Quality';
-$productDescription = isset($_POST['description']) ? $_POST['description'] : 'Default description';
-$productCategory = isset($_POST['category']) ? $_POST['category'] : 9;
-$regularPrice = isset($_POST['regular_price']) ? $_POST['regular_price'] : '21.99';
-$saleprice = isset($_POST['sale_price']) ? $_POST['sale_price'] : '21.99';
-$shortDescription = isset($_POST['short_description']) ? $_POST['short_description'] : '';
-$image1 = isset($_POST['images'][0]['src']) ? $_POST['images'][0]['src'] : '';
-
 $data = [
-    'name' => $productName,
-    'regular_price' => $regularPrice,
-    'sale_price' => $saleprice,
-    'description' => $productDescription,
-    'short_description' => $shortDescription,
-    'categories' => [
+    'payment_method' => 'bacs',
+    'payment_method_title' => 'Direct Bank Transfer',
+    'set_paid' => true,
+    'billing' => [
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'address_1' => '969 Market',
+        'address_2' => '',
+        'city' => 'San Francisco',
+        'state' => 'CA',
+        'postcode' => '94103',
+        'country' => 'US',
+        'email' => 'john.doe@example.com',
+        'phone' => '(555) 555-5555'
+    ],
+    'shipping' => [
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'address_1' => '969 Market',
+        'address_2' => '',
+        'city' => 'San Francisco',
+        'state' => 'CA',
+        'postcode' => '94103',
+        'country' => 'US'
+    ],
+    'line_items' => [
         [
-            'id' => $productCategory
+            'product_id' => 93,
+            'quantity' => 2
+        ],
+        [
+            'product_id' => 22,
+            'variation_id' => 23,
+            'quantity' => 1
         ]
     ],
-    'images' => [
+    'shipping_lines' => [
         [
-            'src' => $image1
-        ],
+            'method_id' => 'flat_rate',
+            'method_title' => 'Flat Rate',
+            'total' => '10.00'
+        ]
     ]
 ];
-
-$response = $woocommerce->post('products', $data);
-
-echo json_encode($response);
+print_r($woocommerce->post('orders', $data));
 ?>
